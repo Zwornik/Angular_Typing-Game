@@ -1,0 +1,46 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700;900&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> 
+
+<div class="container">
+    <div class="columns is-centered mx-4 mt-4 min-width">
+        <div class="box column is-two-thirds">
+
+            <h1 class="title-font title has-text-centered mt-4">Haiku z rana <br> wygładza kolana</h1>
+            <p class="has-text-centered mb-5">Przepisz bezbłędnie haiku w jak najkrótszym czasie </p>
+
+            <div class="box">
+
+                <div class="has-text-centered is-italic mb-4  has-text-weight-medium">
+                    <p>
+                        <span [class]="compare(char, text[i])"
+                            *ngFor = "let char of haiku.split(''); let i = index;">{{char}}</span>
+                    </p>
+                </div>
+
+                <div class="field">
+                    <input #inputName class="input" (input)="onInput($any($event).target.value)" maxlength="51"
+                        placeholder="Pisz tutaj" />
+                        
+                        <p id="yourTime" class="mt-4 has-text-centered">Twój czas: {{ time }}</p>
+                </div>
+            </div>
+
+            <div class="box has-text-centered is-italic mb-4  has-text-weight-medium">
+            <!-- *ngIf = "haiku == text" > -->
+                <p class="subtitle">Przepisałaś haiku w czasie: {{ score }}</p>
+                <p class="subtitle" >Twój całkowity wynik: {{ totalScore }}</p>
+                <button (click)="inputName.value=''" (click)="generateText()" (click)="endTimer()" class="button is-medium is-warning">{{ button2 }}
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<body>
+    <!-- <p id="yourTime">abcd</p> -->
+    
+</body>
+
+
+<!-- *ngIf="haiku === text" class="box has-text-centered" -->
